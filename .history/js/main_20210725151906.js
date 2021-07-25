@@ -1,0 +1,1 @@
+var staffManager = new staffManager();

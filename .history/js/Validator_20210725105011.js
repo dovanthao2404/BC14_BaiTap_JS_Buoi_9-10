@@ -1,0 +1,7 @@
+function Validtor() {
+
+  var formRules = {
+
+  }
+
+}
