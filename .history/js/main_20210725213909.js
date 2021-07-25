@@ -56,24 +56,23 @@ function handleUpdateStaff() {
   var validation = new Validator("#formQLNV");
   var data = validation.getDataUpdate();
   var staff = null;
+  var dataStaff = [];
   var account = document.querySelector("#tknv").value;
   if (data !== undefined) {
-    var dataStaff = [];
     var count = 0;
     for (var key in data) {
       dataStaff[count] = data[key];
       count++;
     }
-    staff = new Staff(account, ...dataStaff)
-    staff.calculationOfSalary();
-    staff.staffAssessment();
-    if (staff) {
-      staffManager.updateStaff(staff);
-      showListStaff(staffManager.listStaff);
-      document.querySelector('#btnDong').click();
-    }
   }
-
+  staff = new Staff(account, ...dataStaff)
+  staff.calculationOfSalary();
+  staff.staffAssessment();
+  if (staff) {
+    staffManager.updateStaff(staff);
+    showListStaff(staffManager.listStaff);
+    document.querySelector('#btnDong').click();
+  }
 }
 
 // Show danh sách nhân viên ra màn hình

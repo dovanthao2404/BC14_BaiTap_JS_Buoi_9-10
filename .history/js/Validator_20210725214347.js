@@ -162,7 +162,7 @@ function Validator(formSelector) {
       }
       input.onblur = handleValidate;
       input.oninput = handleClearError;
-      if (input.name === "ngaylam") {
+      if (input.name === "") {
         input.onchange = handleClearError;
       }
     }

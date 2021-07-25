@@ -161,10 +161,7 @@ function Validator(formSelector) {
         }
       }
       input.onblur = handleValidate;
-      input.oninput = handleClearError;
-      if (input.name === "ngaylam") {
-        input.onchange = handleClearError;
-      }
+      input.onchange = handleClearError;
     }
   }
 
