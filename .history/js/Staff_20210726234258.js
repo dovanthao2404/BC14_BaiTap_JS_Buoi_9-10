@@ -11,7 +11,7 @@ function Staff(account, fullName, email, password, startingDate, basicSalary, po
     this.email = email,
     this.password = password,
     this.startingDate = startingDate,
-    this.basicSalary = +basicSalary,
+    this.basicSalary = basicSalary,
     this.position = position,
     this.workingHours = workingHours,
     this.classification,
@@ -41,10 +41,10 @@ Staff.prototype.calculationOfSalary = function () {
   var regularStaff = "Nhân viên";
 
   if (this.position === boss) {
-    this.totalSalary = (this.basicSalary * 3).toFixed(2);
+    this.totalSalary = this.basicSalary * 3;
   } else if (this.position === headOfDepartment) {
-    this.totalSalary = (this.basicSalary * 2).toFixed(2);
+    this.totalSalary = this.basicSalary * 2;
   } else {
-    this.totalSalary = (this.basicSalary).toFixed(2);
+    this.totalSalary = this.basicSalary;
   }
 }

@@ -11,7 +11,7 @@ function Staff(account, fullName, email, password, startingDate, basicSalary, po
     this.email = email,
     this.password = password,
     this.startingDate = startingDate,
-    this.basicSalary = +basicSalary,
+    this.basicSalary = basicSalary,
     this.position = position,
     this.workingHours = workingHours,
     this.classification,
