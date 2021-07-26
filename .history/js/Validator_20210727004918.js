@@ -211,9 +211,8 @@ function Validator(formSelector) {
     var formMessage = formGroup.querySelector(".form-message");
 
     formMessage.innerText = "";
-  }
 
-  // Đưa data ra ngoài khi người dùng nhấn vào thêm nhân viên mới
+  }
   this.getData = function () {
     var formValues = {};
 
@@ -235,7 +234,6 @@ function Validator(formSelector) {
     }
   }
 
-  // Đưa data ra ngoài khi người dùng nhấn vào cập nhật nhân viên
   this.getDataUpdate = function () {
     var formValues = {};
 

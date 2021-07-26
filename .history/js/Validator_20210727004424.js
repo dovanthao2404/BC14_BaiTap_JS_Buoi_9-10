@@ -139,16 +139,11 @@ function Validator(formSelector) {
   var formElement = document.querySelector(formSelector);
 
   if (formElement) {
-
-    // Lấy các thẻ liên quan đến form có name và rules
     var inputs = formElement.querySelectorAll("[name][rules]")
 
     for (var input of inputs) {
-
-      // danh sách các rule của input
       var rules = input.getAttribute("rules").split("|");
 
-      // lọc rule để thêm vào formRules
       for (var rule of rules) {
         var isRuleHasValue = rule.includes(":");
         var ruleInfo;
@@ -162,14 +157,12 @@ function Validator(formSelector) {
         if (isRuleHasValue) {
           ruleFunc = ruleFunc(ruleInfo[1]);
         }
-        // Thêm vào formRules
         if (Array.isArray(formRules[input.name])) {
           formRules[input.name].push(ruleFunc)
         } else {
           formRules[input.name] = [ruleFunc];
         }
       }
-
       input.onblur = handleValidate;
       input.oninput = handleClearError;
       if (input.name === "ngaylam") {
@@ -178,7 +171,6 @@ function Validator(formSelector) {
     }
   }
 
-  // Lấy ra thẻ cha ủa element matches với selector
   function getParent(element, selector) {
     while (element.parentElement) {
       if (element.parentElement.matches(selector)) {
@@ -188,7 +180,6 @@ function Validator(formSelector) {
     }
   }
 
-  // Xử lý kiển tra ô input được click
   function handleValidate(event) {
     var rules = formRules[event.target.name];
     var errorMessage;
@@ -205,15 +196,13 @@ function Validator(formSelector) {
     return !errorMessage;
   }
 
-  // Xóa lỗi khi người dùng nhập ô input
   function handleClearError(event) {
     var formGroup = getParent(event.target, ".form-group");
     var formMessage = formGroup.querySelector(".form-message");
 
     formMessage.innerText = "";
-  }
 
-  // Đưa data ra ngoài khi người dùng nhấn vào thêm nhân viên mới
+  }
   this.getData = function () {
     var formValues = {};
 
@@ -235,7 +224,6 @@ function Validator(formSelector) {
     }
   }
 
-  // Đưa data ra ngoài khi người dùng nhấn vào cập nhật nhân viên
   this.getDataUpdate = function () {
     var formValues = {};
 

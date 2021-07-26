@@ -188,7 +188,6 @@ function Validator(formSelector) {
     }
   }
 
-  // Xử lý kiển tra ô input được click
   function handleValidate(event) {
     var rules = formRules[event.target.name];
     var errorMessage;
@@ -205,15 +204,13 @@ function Validator(formSelector) {
     return !errorMessage;
   }
 
-  // Xóa lỗi khi người dùng nhập ô input
   function handleClearError(event) {
     var formGroup = getParent(event.target, ".form-group");
     var formMessage = formGroup.querySelector(".form-message");
 
     formMessage.innerText = "";
-  }
 
-  // Đưa data ra ngoài khi người dùng nhấn vào thêm nhân viên mới
+  }
   this.getData = function () {
     var formValues = {};
 
@@ -235,7 +232,6 @@ function Validator(formSelector) {
     }
   }
 
-  // Đưa data ra ngoài khi người dùng nhấn vào cập nhật nhân viên
   this.getDataUpdate = function () {
     var formValues = {};
 

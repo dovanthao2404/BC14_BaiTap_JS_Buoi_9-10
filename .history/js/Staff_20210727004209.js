@@ -20,7 +20,6 @@ function Staff(account, fullName, email, password, startingDate, basicSalary, po
     this.arrayProperties = [this.account, this.fullName, this.email, this.password, this.startingDate, this.basicSalary, this.position, this.workingHours]
 }
 
-// Methods
 Staff.prototype.staffAssessment = function () {
   var excellent = "Xuất sắc";
   var veryGood = "Giỏi";
