@@ -225,11 +225,9 @@ function delegationTable(e) {
   var account = e.target.getAttribute("data-account");
   if (action === "delete") {
     staffManager.removeStaff(account);
-
     pwdPage = 1;
     showListStaff(staffManager.listStaff);
     document.querySelector("#searchName").value = "";
-
   }
   if (action === "change") {
     callModal("Sửa nhân viên", true, 2);
