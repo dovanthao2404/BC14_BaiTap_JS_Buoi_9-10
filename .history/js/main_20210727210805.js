@@ -61,7 +61,6 @@ function handleAddStaff() {
     staffManager.addStaff(staff);
     showListStaff(staffManager.listStaff);
     updateForm()
-    document.querySelector("#searchName").value = "";
   }
 }
 
@@ -90,8 +89,6 @@ function handleUpdateStaff() {
         /**
          * Hiện tại e đang để 2 row 1 trang cho nên đoạn code dưới này có thể chạy được :)))
          * E nghĩ đúng hơn thì phải là dòng đầu tiên và là phần tử cuối cùng của màng còn (listStaffFinded.length - 1) % 2 === 0 chỉ có thể áp dụng cho page có 2 trang.
-         *
-         *
          */
 
         if (listStaffFinded) {
@@ -122,7 +119,7 @@ function showListStaff(listStaff) {
   var ulPagination = document.querySelector("#ulPhanTrang");
   var htmlUlPagination = '';
   var totalStaff = listStaff.length;
-  var row = 2;
+  var row = 3;
   var totalPages = Math.ceil(listStaff.length / row);
   for (var i = 1; i <= totalPages; i++) {
     htmlUlPagination += `

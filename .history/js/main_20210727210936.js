@@ -61,7 +61,6 @@ function handleAddStaff() {
     staffManager.addStaff(staff);
     showListStaff(staffManager.listStaff);
     updateForm()
-    document.querySelector("#searchName").value = "";
   }
 }
 

@@ -61,7 +61,6 @@ function handleAddStaff() {
     staffManager.addStaff(staff);
     showListStaff(staffManager.listStaff);
     updateForm()
-    document.querySelector("#searchName").value = "";
   }
 }
 
@@ -86,13 +85,6 @@ function handleUpdateStaff() {
       var findStaff = document.querySelector("#searchName").value;
       staffManager.updateStaff(staff);
       if (findStaff) {
-
-        /**
-         * Hiện tại e đang để 2 row 1 trang cho nên đoạn code dưới này có thể chạy được :)))
-         * E nghĩ đúng hơn thì phải là dòng đầu tiên và là phần tử cuối cùng của màng còn (listStaffFinded.length - 1) % 2 === 0 chỉ có thể áp dụng cho page có 2 trang.
-         *
-         *
-         */
 
         if (listStaffFinded) {
 

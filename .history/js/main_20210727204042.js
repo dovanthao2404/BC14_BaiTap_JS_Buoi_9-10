@@ -3,7 +3,7 @@ staffManager.start();
 var pwdPage = 1;
 showListStaff(staffManager.listStaff)
 new Validator("#formQLNV");
-var listStaffFinded;
+// var listStaffFinded;
 // Hien thi modal
 document.querySelector("#btnThem").addEventListener("click", function () {
   callModal("Thêm nhân viên", false, 1);
@@ -61,7 +61,6 @@ function handleAddStaff() {
     staffManager.addStaff(staff);
     showListStaff(staffManager.listStaff);
     updateForm()
-    document.querySelector("#searchName").value = "";
   }
 }
 
@@ -83,29 +82,13 @@ function handleUpdateStaff() {
     staff.calculationOfSalary();
     staff.staffAssessment();
     if (staff) {
-      var findStaff = document.querySelector("#searchName").value;
       staffManager.updateStaff(staff);
+      // var lastAccountFind = listStaffFinded[listStaffFinded.length - 1].account;
+      // if (account === ) {
+
+      // }
+      var findStaff = document.querySelector("#searchName").value;
       if (findStaff) {
-
-        /**
-         * Hiện tại e đang để 2 row 1 trang cho nên đoạn code dưới này có thể chạy được :)))
-         * E nghĩ đúng hơn thì phải là dòng đầu tiên và là phần tử cuối cùng của màng còn (listStaffFinded.length - 1) % 2 === 0 chỉ có thể áp dụng cho page có 2 trang.
-         *
-         *
-         */
-
-        if (listStaffFinded) {
-
-          var classification = document.querySelector("#gioLam").value;
-          var lastAccountFind = listStaffFinded[listStaffFinded.length - 1].account;
-          if (account === lastAccountFind &&
-            (listStaffFinded.length - 1) % 2 === 0 &&
-            classification !== listStaffFinded[listStaffFinded.length - 1].classification) {
-
-            pwdPage -= 1;
-          }
-        }
-
         findStaffByClassification(pwdPage);
         document.querySelector('#btnDong').click();
       } else {
@@ -239,7 +222,7 @@ function delegationTable(e) {
 function findStaffByClassification(page) {
 
   var content = document.querySelector("#searchName").value;
-  listStaffFinded = staffManager.findStaffByClassification(content);
+  var listStaffFinded = staffManager.findStaffByClassification(content);
 
   pwdPage = page;
   // if (pwdPage)
