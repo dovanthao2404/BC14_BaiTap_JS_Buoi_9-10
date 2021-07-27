@@ -30,12 +30,6 @@ document.querySelector("#ulPhanTrang").addEventListener("click", function (event
       pwdPage = numberId[1];
       findStaffByClassification(pwdPage);
     }
-  } else {
-    if (event.target.id.includes("page")) {
-      var numberId = event.target.id.split("-");
-      pwdPage = numberId[1];
-      showListStaff(staffManager.listStaff);
-    }
   }
 })
 
@@ -66,7 +60,6 @@ function handleAddStaff() {
 
 // Xử lý cập nhật nhân viên
 function handleUpdateStaff() {
-
   var validation = new Validator("#formQLNV");
   var data = validation.getDataUpdate();
   var staff = null;
@@ -83,15 +76,8 @@ function handleUpdateStaff() {
     staff.staffAssessment();
     if (staff) {
       staffManager.updateStaff(staff);
-
-      var findStaff = document.querySelector("#searchName").value;
-      if (findStaff) {
-        findStaffByClassification(pwdPage);
-        document.querySelector('#btnDong').click();
-      } else {
-        showListStaff(staffManager.listStaff);
-        document.querySelector('#btnDong').click();
-      }
+      showListStaff(staffManager.listStaff);
+      document.querySelector('#btnDong').click();
     }
   }
 

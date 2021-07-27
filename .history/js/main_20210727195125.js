@@ -86,7 +86,7 @@ function handleUpdateStaff() {
 
       var findStaff = document.querySelector("#searchName").value;
       if (findStaff) {
-        findStaffByClassification(pwdPage);
+        findStaffByClassification(pwdPage)
         document.querySelector('#btnDong').click();
       } else {
         showListStaff(staffManager.listStaff);

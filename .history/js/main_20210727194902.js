@@ -83,15 +83,9 @@ function handleUpdateStaff() {
     staff.staffAssessment();
     if (staff) {
       staffManager.updateStaff(staff);
-
-      var findStaff = document.querySelector("#searchName").value;
-      if (findStaff) {
-        findStaffByClassification(pwdPage);
-        document.querySelector('#btnDong').click();
-      } else {
-        showListStaff(staffManager.listStaff);
-        document.querySelector('#btnDong').click();
-      }
+      // if (upd)
+      showListStaff(staffManager.listStaff);
+      document.querySelector('#btnDong').click();
     }
   }
 
