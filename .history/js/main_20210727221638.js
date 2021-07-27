@@ -101,6 +101,7 @@ function handleUpdateStaff() {
           if (account === lastAccountFind &&
             (listStaffFinded.length - 1) % 2 === 0 &&
             classification !== listStaffFinded[listStaffFinded.length - 1].classification) {
+            console.log("a")
             pwdPage -= 1;
           }
         }

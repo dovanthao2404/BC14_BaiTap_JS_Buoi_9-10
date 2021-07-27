@@ -95,12 +95,13 @@ function handleUpdateStaff() {
          */
 
         if (listStaffFinded) {
-          var classification = staff.classification;
+          var workingHours = document.querySelector("#gioLam").value;
+          var classification = getClassification(workingHours)
           var lastAccountFind = listStaffFinded[listStaffFinded.length - 1].account;
-
           if (account === lastAccountFind &&
             (listStaffFinded.length - 1) % 2 === 0 &&
             classification !== listStaffFinded[listStaffFinded.length - 1].classification) {
+            console.log("a")
             pwdPage -= 1;
           }
         }
@@ -116,6 +117,9 @@ function handleUpdateStaff() {
 
 }
 
+// function getClassification(workingHours) {
+//   var
+// }
 
 // Show danh sách nhân viên ra màn hình
 function showListStaff(listStaff) {
