@@ -263,12 +263,8 @@ function findStaffByClassification(page) {
 
   var content = document.querySelector("#searchName").value;
   listStaffFinded = staffManager.findStaffByClassification(content);
-  if (listStaffFinded.length > 0) {
-    pwdPage = page;
-    showListStaff(listStaffFinded);
-  } else {
-    pwdPage = 0;
-    showListStaff([]);
-  }
+
+  pwdPage = page;
+  showListStaff(listStaffFinded);
 
 }

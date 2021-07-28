@@ -253,7 +253,7 @@ function delegationTable(e) {
   }
   if (action === "change") {
     callModal("Sửa nhân viên", true, 2);
-    var staff = staffManager.listStaff.find((staff) => staff.account === account)
+    staff = staffManager.listStaff.find((staff) => staff.account === account)
     updateForm(staff)
   }
 }
@@ -263,12 +263,8 @@ function findStaffByClassification(page) {
 
   var content = document.querySelector("#searchName").value;
   listStaffFinded = staffManager.findStaffByClassification(content);
-  if (listStaffFinded.length > 0) {
-    pwdPage = page;
-    showListStaff(listStaffFinded);
-  } else {
-    pwdPage = 0;
-    showListStaff([]);
-  }
+
+  pwdPage = page;
+  showListStaff(listStaffFinded);
 
 }

@@ -268,7 +268,7 @@ function findStaffByClassification(page) {
     showListStaff(listStaffFinded);
   } else {
     pwdPage = 0;
-    showListStaff([]);
+    showListStaff(listStaffFinded);
   }
 
 }

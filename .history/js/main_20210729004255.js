@@ -1,4 +1,3 @@
-'use strict';
 var staffManager = new StaffManager();
 staffManager.start();
 var pwdPage = 1;
@@ -239,21 +238,20 @@ function delegationTable(e) {
   if (action === "delete") {
     staffManager.removeStaff(account);
 
-    document.querySelector("#searchName").value = "";
-    console.log(staffManager.listStaff.length)
     if (staffManager.listStaff.length > 0) {
       console.log("a")
       pwdPage = 1;
       showListStaff(staffManager.listStaff);
     } else {
       pwdPage = 0;
-      showListStaff([]);
+      showListStaff([])
     }
+    document.querySelector("#searchName").value = "";
 
   }
   if (action === "change") {
     callModal("Sửa nhân viên", true, 2);
-    var staff = staffManager.listStaff.find((staff) => staff.account === account)
+    staff = staffManager.listStaff.find((staff) => staff.account === account)
     updateForm(staff)
   }
 }
@@ -263,12 +261,8 @@ function findStaffByClassification(page) {
 
   var content = document.querySelector("#searchName").value;
   listStaffFinded = staffManager.findStaffByClassification(content);
-  if (listStaffFinded.length > 0) {
-    pwdPage = page;
-    showListStaff(listStaffFinded);
-  } else {
-    pwdPage = 0;
-    showListStaff([]);
-  }
+
+  pwdPage = page;
+  showListStaff(listStaffFinded);
 
 }

@@ -266,9 +266,6 @@ function findStaffByClassification(page) {
   if (listStaffFinded.length > 0) {
     pwdPage = page;
     showListStaff(listStaffFinded);
-  } else {
-    pwdPage = 0;
-    showListStaff([]);
   }
 
 }
