@@ -126,12 +126,11 @@ function handleUpdateStaff() {
 function showListStaff(listStaff) {
 
   var html = '';
-  var htmlUlPagination = '';
 
   var tbody = document.querySelector("#tableDanhSach");
-  var ulPagination = document.querySelector("#ulPhanTrang");
-
   if (listStaff.length > 0) {
+    var ulPagination = document.querySelector("#ulPhanTrang");
+    var htmlUlPagination = '';
     var totalStaff = listStaff.length;
     var row = 2;
     var totalPages = Math.ceil(listStaff.length / row);
@@ -174,9 +173,7 @@ function showListStaff(listStaff) {
   }
 
   tbody.innerHTML = html;
-  if (pwdPage < 1) {
-    ulPagination.innerHTML = "";
-  }
+
 }
 
 // Update form

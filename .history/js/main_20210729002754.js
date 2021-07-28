@@ -130,7 +130,6 @@ function showListStaff(listStaff) {
 
   var tbody = document.querySelector("#tableDanhSach");
   var ulPagination = document.querySelector("#ulPhanTrang");
-
   if (listStaff.length > 0) {
     var totalStaff = listStaff.length;
     var row = 2;
@@ -174,9 +173,7 @@ function showListStaff(listStaff) {
   }
 
   tbody.innerHTML = html;
-  if (pwdPage < 1) {
-    ulPagination.innerHTML = "";
-  }
+
 }
 
 // Update form

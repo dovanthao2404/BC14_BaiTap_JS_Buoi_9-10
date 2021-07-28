@@ -174,8 +174,8 @@ function showListStaff(listStaff) {
   }
 
   tbody.innerHTML = html;
-  if (pwdPage < 1) {
-    ulPagination.innerHTML = "";
+  if (!htmlUlPagination) {
+    ulPagination = "";
   }
 }
 

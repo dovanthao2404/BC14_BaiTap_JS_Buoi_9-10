@@ -107,7 +107,6 @@ function handleUpdateStaff() {
         if (pwdPage >= 1) {
           findStaffByClassification(pwdPage);
         } else {
-          console.log("a");
           showListStaff([]);
         }
 
@@ -124,14 +123,9 @@ function handleUpdateStaff() {
 
 // Show danh sách nhân viên ra màn hình
 function showListStaff(listStaff) {
-
-  var html = '';
-  var htmlUlPagination = '';
-
-  var tbody = document.querySelector("#tableDanhSach");
-  var ulPagination = document.querySelector("#ulPhanTrang");
-
-  if (listStaff.length > 0) {
+  if (listStaff) {
+    var ulPagination = document.querySelector("#ulPhanTrang");
+    var htmlUlPagination = '';
     var totalStaff = listStaff.length;
     var row = 2;
     var totalPages = Math.ceil(listStaff.length / row);
@@ -149,7 +143,9 @@ function showListStaff(listStaff) {
       rowEnd = totalStaff;
     }
 
+    var tbody = document.querySelector("#tableDanhSach");
 
+    var html = '';
     for (var i = rowStart; i < rowEnd; i++) {
       html += `
     <tr>
@@ -174,9 +170,7 @@ function showListStaff(listStaff) {
   }
 
   tbody.innerHTML = html;
-  if (pwdPage < 1) {
-    ulPagination.innerHTML = "";
-  }
+
 }
 
 // Update form

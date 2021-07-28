@@ -106,11 +106,7 @@ function handleUpdateStaff() {
         }
         if (pwdPage >= 1) {
           findStaffByClassification(pwdPage);
-        } else {
-          console.log("a");
-          showListStaff([]);
         }
-
         document.querySelector('#btnDong').click();
       } else {
         showListStaff(staffManager.listStaff);
@@ -124,34 +120,30 @@ function handleUpdateStaff() {
 
 // Show danh sách nhân viên ra màn hình
 function showListStaff(listStaff) {
-
-  var html = '';
-  var htmlUlPagination = '';
-
-  var tbody = document.querySelector("#tableDanhSach");
   var ulPagination = document.querySelector("#ulPhanTrang");
-
-  if (listStaff.length > 0) {
-    var totalStaff = listStaff.length;
-    var row = 2;
-    var totalPages = Math.ceil(listStaff.length / row);
-    for (var i = 1; i <= totalPages; i++) {
-      htmlUlPagination += `
+  var htmlUlPagination = '';
+  var totalStaff = listStaff.length;
+  var row = 2;
+  var totalPages = Math.ceil(listStaff.length / row);
+  for (var i = 1; i <= totalPages; i++) {
+    htmlUlPagination += `
     <li class="page-item">
       <a class="page-link" id="page-${i}">${i}</a>
     </li>`
-    }
-    ulPagination.innerHTML = htmlUlPagination;
+  }
+  ulPagination.innerHTML = htmlUlPagination;
 
-    var rowStart = (pwdPage - 1) * row;
-    var rowEnd = pwdPage * row;
-    if (totalStaff < rowEnd) {
-      rowEnd = totalStaff;
-    }
+  var rowStart = (pwdPage - 1) * row;
+  var rowEnd = pwdPage * row;
+  if (totalStaff < rowEnd) {
+    rowEnd = totalStaff;
+  }
 
+  var tbody = document.querySelector("#tableDanhSach");
 
-    for (var i = rowStart; i < rowEnd; i++) {
-      html += `
+  var html = '';
+  for (var i = rowStart; i < rowEnd; i++) {
+    html += `
     <tr>
       <th>${listStaff[i].account}</th>
       <th>${listStaff[i].fullName}</th>
@@ -170,13 +162,9 @@ function showListStaff(listStaff) {
       </th>
     </tr>
     `
-    }
   }
 
   tbody.innerHTML = html;
-  if (pwdPage < 1) {
-    ulPagination.innerHTML = "";
-  }
 }
 
 // Update form
